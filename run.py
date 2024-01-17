@@ -41,6 +41,17 @@ class WordleGame:
             else:
                 print("Your name must be at least 3 characters long. Please try again.")
                 
+    def how_to_play(self):
+        print("How to Play Wordle:")
+        print("1. You will be asked to enter your name. Once your name is entered, the game will begin")
+        print("2. You'll be asked to guess a 5-letter word. The game will provide feedback on your guess attempt.")
+        print("3. The feedback consists of two elements: correct letters in the correct position and correct letters in the wrong position (*)")
+        print("4. For example, if the secret word is 'APPLE' and you guess is 'ADOPT' the feedback might look like this:")
+        print("   A _ _ P*_ 1as you can see the 'A' is in correct position with no marking and P is with an asterix idicating the letter is present in the word but in a different location")
+        print("5. If you correctly guess the word within the specified number of attempts, you win the game!")
+        print("6. You can choose to exit the game at any time")
+        print("7. Have fun!")
+
 
 def print_menu():
     """
@@ -57,18 +68,29 @@ def print_menu():
 """)
     print("-" * 80) 
     print("1. Start Game")
-    print("2. View High Scores")
+    print("2. Select difficulty")
     print("3. How to play")
     print("-" * 80)
     menu_choice= input("Select an option: ")
-    if menu_choice=="1":
+    return menu_choice
+     
+
+
+def main():
+    while True:
+        choice = print_menu()
         #create an instance of the WordleGame class named game
         game = WordleGame(SHEET)
-        game.start_game()
-    
-    else:
-        print("Invalid option. Please choose a valid option.")   
 
+        if choice == "1":
+            game.start_game()
+        elif choice == "2":
+            print("d")
+            
+        elif choice == "3":
+            game.how_to_play()
+        else:
+            print("Invalid option. Please choose a valid option.")
 
-
-print_menu()
+if __name__ == "__main__":
+    main()
