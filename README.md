@@ -80,9 +80,16 @@ Pyhton
 
 ## Deployment & Local Development
 
-The site is deployed using heroku: [Wordle](https://wordle-ci-569efaee926b.herokuapp.com/)
+### Deployment
+This project was deployed using Code Institute's mock terminal for Heroku.  [Wordle](https://wordle-ci-569efaee926b.herokuapp.com/)
 
-### Local Development
+Steps for deployment:
+
+1. Fork or clone this repository
+2. Create a new Heroku app
+3. Set the buildbacks to Python and NodeJS in that order
+4. Link the Heroku app to the repository
+5. Click on Deploy
 
 #### How to Fork
 
