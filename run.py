@@ -15,7 +15,7 @@ SCOPED_CREDS = CREDS.with_scopes(SCOPE)
 GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open('project3-ci')
 
-page1 = SHEET.worksheet('sales')
+page1 = SHEET.worksheet('1')
 
 data = page1.get_all_values()
 
