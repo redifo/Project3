@@ -131,6 +131,7 @@ https://gist.github.com/dracos/dd0668f281e685bad51479e5acaadb93
 2309 5 letter words were recovered as a .txt file from this directory:
 https://dagshub.com/arjvik/wordle-wordlist
 
+The ASCII main menu title was created by using the website and the type selection given in the following url: https://patorjk.com/software/taag/#p=display&h=0&f=Standard&t=Wordle
 Readme.md and Testing.md write structure was written by using my past project as a reference (milestone project 1).
 
 ### Acknowledgments

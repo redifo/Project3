@@ -25,3 +25,21 @@ all_words = words_sheet.get_all_values()
 
 print(all_answers[1])
 print(all_words[1])
+
+def print_menu():
+    print("\n" * 2)  
+    print("""
+            __        __                     _   _        
+            \ \      / /   ___    _ __    __| | | |   ___ 
+             \ \ /\ / /   / _ \  | '__|  / _` | | |  / _ \.
+              \ V  V /   | (_) | | |    | (_| | | | |  __/
+               \_/\_/     \___/  |_|     \__,_| |_|  \___|
+""")
+    print("-" * 80) 
+    print("1. Start Game")
+    print("2. View High Scores")
+    print("3. Exit")
+    print("-" * 80)
+    print("Select an option: ", end="")
+
+print_menu()
