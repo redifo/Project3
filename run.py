@@ -23,11 +23,12 @@ words_sheet = SHEET.worksheet('words')
 all_answers = answers_sheet.get_all_values()
 all_words = words_sheet.get_all_values()
 
-print(all_answers[1])
-print(all_words[1])
-
 def print_menu():
-    print("\n" * 2)  
+    """
+    Function to display the main menu options and the ascii wordle title.
+    Calls the corresponding functions for each option
+    """
+    print("\n" * 1)  
     print("""
             __        __                     _   _        
             \ \      / /   ___    _ __    __| | | |   ___ 
@@ -38,8 +39,27 @@ def print_menu():
     print("-" * 80) 
     print("1. Start Game")
     print("2. View High Scores")
-    print("3. Exit")
+    print("3. How to play")
     print("-" * 80)
-    print("Select an option: ", end="")
+    menu_choice= input("Select an option: ")
+    if menu_choice=="1":
+        player_name=get_player_name()
+        print(f"Hello, {player_name}!")
+    else:
+        print("Invalid option. Please choose a valid option.")
+
+def get_player_name():
+    """
+    Asks for user input for a name and checks that name to be longer than 2 characters.
+    """
+    while True:
+        name = input("Please enter your name: ")
+        if len(name) > 2:
+            return name.capitalize()
+            
+        else:
+            print("Your name must be at least 4 characters long. Please try again.")
+
+
 
 print_menu()
