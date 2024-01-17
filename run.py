@@ -15,8 +15,13 @@ SCOPED_CREDS = CREDS.with_scopes(SCOPE)
 GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open('project3-ci')
 
-page1 = SHEET.worksheet('1')
+#sheet with 2309 5 letter words
+answers_sheet = SHEET.worksheet('answer')
+#sheet with 14885 5 letter words
+words_sheet = SHEET.worksheet('words')
 
-data = page1.get_all_values()
+all_answers = answers_sheet.get_all_values()
+all_words = words_sheet.get_all_values()
 
-print(data)
+print(all_answers[1])
+print(all_words[1])
