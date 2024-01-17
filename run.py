@@ -3,6 +3,7 @@
 # Write your code to expect a terminal of 80 characters wide and 24 rows high
 import gspread
 from google.oauth2.service_account import Credentials
+import random
 
 SCOPE = [
     "https://www.googleapis.com/auth/spreadsheets",
@@ -15,13 +16,31 @@ SCOPED_CREDS = CREDS.with_scopes(SCOPE)
 GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open('project3-ci')
 
-#sheet with 2309 5 letter words
-answers_sheet = SHEET.worksheet('answer')
-#sheet with 14885 5 letter words
-words_sheet = SHEET.worksheet('words')
 
-all_answers = answers_sheet.get_all_values()
-all_words = words_sheet.get_all_values()
+class WordleGame:
+    def __init__(self, sheet):
+        #sheet with 14885 5 letter words
+        self.answers_sheet = sheet.worksheet('answer')
+        #sheet with 2309 5 letter words
+        self.words_sheet = sheet.worksheet('words')
+        self.all_answers = self.answers_sheet.get_all_values()
+        self.all_words = self.words_sheet.get_all_values()
+        self.player_name = None
+
+    def start_game(self):
+        self.player_name = self.get_player_name()
+        print(f"Hello, {self.player_name}!")
+
+        
+
+    def get_player_name(self):
+        while True:
+            name = input("Please enter your name: ")
+            if len(name) > 2:
+                return name.capitalize()
+            else:
+                print("Your name must be at least 3 characters long. Please try again.")
+                
 
 def print_menu():
     """
@@ -43,22 +62,12 @@ def print_menu():
     print("-" * 80)
     menu_choice= input("Select an option: ")
     if menu_choice=="1":
-        player_name=get_player_name()
-        print(f"Hello, {player_name}!")
+        #create an instance of the WordleGame class named game
+        game = WordleGame(SHEET)
+        game.start_game()
+    
     else:
-        print("Invalid option. Please choose a valid option.")
-
-def get_player_name():
-    """
-    Asks for user input for a name and checks that name to be longer than 2 characters.
-    """
-    while True:
-        name = input("Please enter your name: ")
-        if len(name) > 2:
-            return name.capitalize()
-            
-        else:
-            print("Your name must be at least 4 characters long. Please try again.")
+        print("Invalid option. Please choose a valid option.")   
 
 
 
