@@ -14,8 +14,7 @@ SCOPED_CREDS = CREDS.with_scopes(SCOPE)
 GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open('project3-ci')
 
-title="""
-             __        __                     _   _        
+title="""             __        __                     _   _        
              \ \      / /   ___    _ __    __| | | |   ___ 
               \ \ /\ / /   / _ \  | '__|  / _` | | |  / _ \.
                \ V  V /   | (_) | | |    | (_| | | | |  __/
@@ -138,9 +137,9 @@ class WordleGame:
         
         # Sort the high_scores list
         sorted_highscores = sorted(highscores_data, key=sort_scores)
-        
-        top_10_highscores = sorted_highscores[:10]
-        print(top_10_highscores)
+        for i, score in enumerate(sorted_highscores[:10]):
+            print(f"{i + 1}. Name: {score[0]}, Difficulty: {score[1].title()}, Guesses: {score[2]}, Time: {score[3]} seconds")
+
         print("-" * 80)
         input("Press Enter to return to the main menu...")
 
