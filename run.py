@@ -96,8 +96,15 @@ def print_menu(firstload):
         print("2. Select difficulty")
         print("3. How to play")
         print("-" * 80)
-    menu_choice= input("Select an option: \n")
-    return menu_choice
+    
+    while True:
+        menu_choice= input("Select an option: \n")
+        if (len(menu_choice)>1):
+            print("Please only enter 1 character")
+        elif menu_choice not in {"1", "2", "3", "e","n","h","E","N","H"}:
+            print("Please enter a valid option")
+        else:
+            return menu_choice
      
 
 
@@ -112,6 +119,7 @@ def main():
         if choice == "1":
             game.start_game()
         elif choice == "2":
+            os.system('clear')
             game.difficulty()
             
         elif choice == "3":
