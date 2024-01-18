@@ -117,16 +117,31 @@ class WordleGame:
         # recovered from https://stackoverflow.com/questions/2084508/clear-the-terminal-in-python
         os.system('cls' if os.name == 'nt' else 'clear')
 
-    def show_highscores(self):
+    def show_highscores(self):#change this code
         """
         Show highscores data of the best 5 players
         The data is take from google sheets
         """
-        print(self.highscores_data)
-        sorted_highscores = sorted(self.highscores_data)
+        print(title)
+        print("-" * 80)
+        print("Top 10 Highscores:")
+
+        # Map difficulty levels to numerical values for sorting
+        difficulty_mapping = {'easy': 1, 'normal': 2, 'hard': 3}
+        # Skip the header row and convert numeric values for sorting
+        highscores_data = [[row[0], row[1], int(row[2]), int(row[3])] for row in self.highscores_data[1:]]
+        
+        # Sorting function
+        def sort_scores(score):
+            name, difficulty, guesses, time = score
+            return (guesses, difficulty_mapping[difficulty], time)
+        
+        # Sort the high_scores list
+        sorted_highscores = sorted(highscores_data, key=sort_scores)
         
         top_10_highscores = sorted_highscores[:10]
         print(top_10_highscores)
+        print("-" * 80)
         input("Press Enter to return to the main menu...")
 
     def add_highscore(self, player_name, difficulty, num_guesses, time_taken):
