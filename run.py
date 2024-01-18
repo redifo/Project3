@@ -3,7 +3,6 @@
 # Write your code to expect a terminal of 80 characters wide and 24 rows high
 import gspread
 from google.oauth2.service_account import Credentials
-
 import os
 
 SCOPE = [
@@ -18,10 +17,10 @@ GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open('project3-ci')
 
 title="""
-                __        __                     _   _        
-                \ \      / /   ___    _ __    __| | | |   ___ 
-                \ \ /\ / /   / _ \  | '__|  / _` | | |  / _ \.
-                \ V  V /   | (_) | | |    | (_| | | | |  __/
+             __        __                     _   _        
+             \ \      / /   ___    _ __    __| | | |   ___ 
+              \ \ /\ / /   / _ \  | '__|  / _` | | |  / _ \.
+               \ V  V /   | (_) | | |    | (_| | | | |  __/
                 \_/\_/     \___/  |_|     \__,_| |_|  \___|
         """
 
@@ -53,7 +52,7 @@ class WordleGame:
             if len(name) > 2:
                 return name.capitalize()
             else:
-                print("Your name must be at least 3 characters long. Please try again.")
+                print("\rYour name must be at least 3 characters long. Please try again.", end="")
                 
     def how_to_play(self):
         """
@@ -68,19 +67,37 @@ class WordleGame:
         print("5. If you correctly guess the word within the specified number of attempts, you win the game!")
         print("6. You can choose to exit the game at any time")
         print("7. Have fun!")
+        input("Press Enter to return to the main menu...")
 
     def difficulty(self):
         """
         Difficalty selector based on user input
         """
-        print("enter e for easy")
-        if (print_menu(firstload=False)=="e" ):
-            print("You have selected easy difficulty. You will be given 10 attempts to guess the word")
-        elif (print_menu(firstload=False)=="n" ):
-            print("You have selected normal difficulty. You will be given 6 attempts to guess the word")
-        elif (print_menu(firstload=False)=="h" ):
-            print("You have selected normal difficulty. You will be given 6 attempts to guess the word")
-
+        print("Select difficulty:")
+        print("e - Easy")
+        print("n - Normal")
+        print("h - Hard")
+        while True:
+            difficulty_choice = input("Enter choice (e/n/h): ").lower()
+            if difficulty_choice in {"e", "n", "h"}:
+                if difficulty_choice == "e":
+                    print("You have selected easy difficulty. You will be given 10 attempts to guess the word.")
+                    input("Press Enter to return to the main menu...")
+                elif difficulty_choice == "n":
+                    print("You have selected normal difficulty. You will be given 6 attempts to guess the word.")
+                    input("Press Enter to return to the main menu...")
+                elif difficulty_choice == "h":
+                    print("You have selected hard difficulty. You will be given 4 attempts to guess the word.")
+                    input("Press Enter to return to the main menu...")
+                break
+            else:
+                print("\rPlease enter a valid option (e, n, h).", end="")
+    def clear_terminal(self):
+        """
+        Clears terminal
+        """
+        # recovered from https://stackoverflow.com/questions/2084508/clear-the-terminal-in-python
+        os.system('cls' if os.name == 'nt' else 'clear')
 
 
 def print_menu(firstload):
@@ -89,7 +106,7 @@ def print_menu(firstload):
     Calls the corresponding functions for each option
     """
     if firstload:
-        os.system('clear')
+        os.system('cls' if os.name == 'nt' else 'clear')
         print(title)
         print("-" * 80) 
         print("1. Start Game")
@@ -97,15 +114,8 @@ def print_menu(firstload):
         print("3. How to play")
         print("-" * 80)
     
-    while True:
-        menu_choice= input("Select an option: \n")
-        if (len(menu_choice)>1):
-            print("Please only enter 1 character")
-        elif menu_choice not in {"1", "2", "3", "e","n","h","E","N","H"}:
-            print("Please enter a valid option")
-        else:
-            return menu_choice
-     
+    menu_choice = input("Select an option (1/2/3): ").lower()
+    return menu_choice
 
 
 def main():
@@ -118,14 +128,17 @@ def main():
         firstload= False
         if choice == "1":
             game.start_game()
+            break
         elif choice == "2":
-            os.system('clear')
+            game.clear_terminal()
             game.difficulty()
+            firstload = True
             
         elif choice == "3":
+            game.clear_terminal()
             game.how_to_play()
-            continue
-
+            firstload = True
+            
         else:
             print("Invalid option. Please choose a valid option.")
             continue
