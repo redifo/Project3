@@ -2,6 +2,8 @@
 import gspread
 from google.oauth2.service_account import Credentials
 import os
+import timer
+import random
 
 SCOPE = [
     "https://www.googleapis.com/auth/spreadsheets",
@@ -53,11 +55,11 @@ class WordleGame:
         Gets the player name and checks its length 
         """
         while True:
-            name = input("Please enter your name: ")
-            if len(name) > 2:
+            name = input("Please enter your name: ").strip()
+            if len(name) > 2 and name.isalnum():
                 return name.title()
             else:
-                print("\rYour name must be at least 3 characters long. Please try again.", end="")
+                print("\rYour name must be at least 3 characters long and can only contain letters and numbers. Please try again.", end="")
                 
     def how_to_play(self):
         """
@@ -130,8 +132,11 @@ class WordleGame:
         # Skip the header row and convert numeric values for sorting
         highscores_data = [[row[0], row[1], int(row[2]), int(row[3])] for row in self.highscores_data[1:]]
         
-        # Sorting function
+        
         def sort_scores(score):
+            """
+            Sorting function
+            """
             name, difficulty, guesses, time = score
             return (guesses, difficulty_mapping[difficulty], time)
         
@@ -164,7 +169,7 @@ def print_menu(firstload):
         print("3. How to play")
         print("-" * 80)
     
-    menu_choice = input("Select an option : ").lower()
+    menu_choice = input("Select an option : ")
     return menu_choice
 
 
