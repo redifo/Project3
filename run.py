@@ -30,6 +30,8 @@ class WordleGame:
         self.words_sheet = sheet.worksheet('words')
         self.all_answers = self.answers_sheet.get_all_values()
         self.all_words = self.words_sheet.get_all_values()
+        self.highscores_sheet = sheet.worksheet('highscores')
+        self.highscores_data= self.highscores_sheet.get_all_values()
         self.player_name = None
         self.difficulty_choice = None
         
@@ -115,7 +117,25 @@ class WordleGame:
         # recovered from https://stackoverflow.com/questions/2084508/clear-the-terminal-in-python
         os.system('cls' if os.name == 'nt' else 'clear')
 
+    def show_highscores(self):
+        """
+        Show highscores data of the best 5 players
+        The data is take from google sheets
+        """
+        print(self.highscores_data)
+        sorted_highscores = sorted(self.highscores_data)
+        
+        top_10_highscores = sorted_highscores[:10]
+        print(top_10_highscores)
+        input("Press Enter to return to the main menu...")
 
+    def add_highscore(self, player_name, difficulty, num_guesses, time_taken):
+        """
+        Add a new highscore to the highscores sheet.
+        """
+        new_highscore = [player_name, difficulty, num_guesses, time_taken]
+        self.highscores_sheet.append_row(new_highscore)
+        
 def print_menu(firstload):
     """
     Function to display the main menu options and the ascii wordle title.
@@ -126,7 +146,7 @@ def print_menu(firstload):
         print(title)
         print("-" * 80) 
         print("1. Start Game")
-        print("2. Select difficulty")
+        print("2. Show High-Scores")
         print("3. How to play")
         print("-" * 80)
     
@@ -151,7 +171,7 @@ def main():
             
         elif choice == "2":
             game.clear_terminal()
-            game.difficulty()
+            game.show_highscores()
             firstload = True
             
         elif choice == "3":

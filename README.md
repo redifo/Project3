@@ -132,6 +132,8 @@ https://gist.github.com/dracos/dd0668f281e685bad51479e5acaadb93
 https://dagshub.com/arjvik/wordle-wordlist
 
 The ASCII main menu title was created by using the website and the type selection given in the following url: https://patorjk.com/software/taag/#p=display&h=0&f=Standard&t=Wordle
+Overwriting previously printed lines learned from (Used for Making error messages to keep printing on the same line): https://itnext.io/overwrite-previously-printed-lines-4218a9563527 
+
 Readme.md and Testing.md write structure was written by using my past project as a reference (milestone project 1).
 
 ### Acknowledgments
