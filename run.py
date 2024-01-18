@@ -1,6 +1,4 @@
-# Your code goes here.
-# You can delete these comments, but do not change the name of this file
-# Write your code to expect a terminal of 80 characters wide and 24 rows high
+
 import gspread
 from google.oauth2.service_account import Credentials
 import os
@@ -33,14 +31,20 @@ class WordleGame:
         self.all_answers = self.answers_sheet.get_all_values()
         self.all_words = self.words_sheet.get_all_values()
         self.player_name = None
+        self.difficulty_choice = None
+        
 
     def start_game(self):
         """
         Starts the game. Calls the get player name function then displays game page.
         """
         self.player_name = self.get_player_name()
+        self.difficulty_choice = self.select_difficulty()
+        
         print(f"Hello, {self.player_name}!")
-
+        input("Press Enter to start the game")
+        self.clear_terminal()
+        print(title)
         
 
     def get_player_name(self):
@@ -50,7 +54,7 @@ class WordleGame:
         while True:
             name = input("Please enter your name: ")
             if len(name) > 2:
-                return name.capitalize()
+                return name.title()
             else:
                 print("\rYour name must be at least 3 characters long. Please try again.", end="")
                 
@@ -58,9 +62,11 @@ class WordleGame:
         """
         Display how to play information
         """
+        print(title)
+        print("-" * 80)
         print("How to Play Wordle:")
         print("1. You will be asked to enter your name upon starting the game. Once your name is entered, the game will begin")
-        print("2. You'll be asked to guess a 5-letter word. The game will provide feedback on your guess attempt.")
+        print("2. You'll be asked to guess a 5-letter word. The game will provide feedback on your guess attempts.")
         print("3. The feedback consists of two elements: correct letters in the correct position and correct letters in the wrong position (*)")
         print("4. For example, if the secret word is 'APPLE' and you guess is 'ADOPT' the feedback might look like this:")
         print("   A _ _ P*_ as you can see the 'A' is in correct position with no marking and P is with an asterix idicating the letter is present in the word but in a different location")
@@ -69,7 +75,7 @@ class WordleGame:
         print("7. Have fun!")
         input("Press Enter to return to the main menu...")
 
-    def difficulty(self):
+    def select_difficulty(self):
         """
         Difficalty selector based on user input
         """
@@ -82,16 +88,26 @@ class WordleGame:
             if difficulty_choice in {"e", "n", "h"}:
                 if difficulty_choice == "e":
                     print("You have selected easy difficulty. You will be given 10 attempts to guess the word.")
-                    input("Press Enter to return to the main menu...")
+                    return "easy"
                 elif difficulty_choice == "n":
                     print("You have selected normal difficulty. You will be given 6 attempts to guess the word.")
-                    input("Press Enter to return to the main menu...")
+                    return "normal"
                 elif difficulty_choice == "h":
                     print("You have selected hard difficulty. You will be given 4 attempts to guess the word.")
-                    input("Press Enter to return to the main menu...")
+                    return "hard"
                 break
             else:
                 print("\rPlease enter a valid option (e, n, h).", end="")
+                return self.select_difficulty()
+
+    def get_num_guesses(self):
+        if self.difficulty_choice == "easy":
+            return 10
+        elif self.difficulty_choice == "normal":
+            return 6
+        elif self.difficulty_choice == "hard":
+            return 4
+        
     def clear_terminal(self):
         """
         Clears terminal
@@ -114,21 +130,25 @@ def print_menu(firstload):
         print("3. How to play")
         print("-" * 80)
     
-    menu_choice = input("Select an option (1/2/3): ").lower()
+    menu_choice = input("Select an option : ").lower()
     return menu_choice
 
 
 def main():
-
+    """
+    The main function to run the Wordle game.
+    """
     #create an instance of the WordleGame class named game
     game = WordleGame(SHEET)
+    #Set the flag of print_menu fuction to true for initally showing the whole menu
     firstload=True
     while True:
+        # Display the menu and get the user's choice
         choice=print_menu(firstload)
-        firstload= False
+        firstload= False # Set the flag to False after the first display
         if choice == "1":
             game.start_game()
-            break
+            
         elif choice == "2":
             game.clear_terminal()
             game.difficulty()
