@@ -48,51 +48,83 @@ class WordleGame:
         difficulty_guess_mapping = {'easy': 10, 'normal': 6, 'hard': 4}
         print(f"Hello, {self.player_name}!")
         input("Press Enter to start the game")
-        self.clear_terminal()
-        print(title)
+        
 
         #had to iterate due to being a list nested in a list
         all_words_list = [' '.join(sublist) for sublist in self.all_words]
         #pick a random word from the answers list
         answer=random.choice(self.all_answers)
         answer_string= answer[0]
-        answer_display = ['_____']
+        answer_display = ['_' for i in range(5)]
         #start timer
         start_time = time.time()
-        print(answer_string)
+        
+        previous_guesses={}
+
+        #Run the game as long as the number of guesses does not exceed the chosen difficulty limit and the word is not guessed correctly
         while self.number_of_guesses < difficulty_guess_mapping[self.difficulty_choice] and not self.guessed_correctly:
-            previous_guesses=[]
-            print(answer_display)
-            
+            self.clear_terminal()
+            print(title)
+            print(answer_string)
+            print(f"Clue for last guess: {' '.join(answer_display)}") 
+            print("Your previous guesses and their clues:")
+            for guess, clue in previous_guesses.items():
+                print(f"{guess}: {clue}")   
             guess = input("\rInput a 5-letter word and press enter:\n")
-            
             #if the guess is in the full list of allowed words 
             if guess in all_words_list:
-                previous_guesses.append(guess)
-                print("You have guessed", guess)
+                clue=(' '.join(answer_display))
+                previous_guesses[guess] = answer_display
                 #process guess
                 self.guessed_correctly = self.process_guess(answer_string, guess, answer_display)
+                self.number_of_guesses += 1 #increment no of guesses
             else:
                 print("\rThat is not a valid word. Please try again with a valid word that is 5 letters long.", end="")
+        
         elapsed_time = time.time() - start_time
-        print(f"{elapsed_time:.1f} seconds.")
+        if self.guessed_correctly:
+            self.add_highscore(self.player_name,self.difficulty_choice,self.number_of_guesses,elapsed_time)
+            print(f"Your final time is {elapsed_time:.0f} seconds. It took you {self.number_of_guesses} guesses to find the right word")
+            
 
-    def process_guess(self,answer, guess,answer_display):
+        else:
+            print(f"You could not guess the word in the given amount of guesses, the correct answer was {answer_string}")
+            
+    def end_game(self):
+        """
+        Ends the game and gives options to play again or return to the main menu.
+        """
+        while True:
+            try:
+                end_game_input = input("Enter '1' to play again or '2' to return to the main menu: ")
+                if end_game_input == '1':
+                    self.run_game()
+                elif end_game_input == '2':
+                    print_menu(firstload=True)
+                    break  # Break out of the loop when a valid option is entered
+                else:
+                    print("Please enter a valid option (1 or 2).")
+            except ValueError:
+                print("Invalid input. Please enter a valid option.")
+                
+    def process_guess(self, answer, guess, answer_display):
+        """
+        Check if the guessed word is correct or not and 
+        if not true give clues depending the letter locations
+        """
         if guess == answer:
             print("Congratulations! You guessed the word correctly.")
             self.guessed_correctly = True
         else:
-            clue = ""
+            
             for i, letter in enumerate(guess):
                 if letter == answer[i]:
-                    clue += letter
+                    
                     answer_display[i] = letter
                 elif letter in answer:
-                    clue += "*"
+                    answer_display[i] = letter+"*"
                 else:
-                    clue += "-"
-            print("Clue:", clue)
-        print("\rSorry, that's not the correct word.", end="")
+                    answer_display[i] = "_"
         return self.guessed_correctly
         
         
