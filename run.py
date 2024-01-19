@@ -2,7 +2,7 @@
 import gspread
 from google.oauth2.service_account import Credentials
 import os
-import timer
+import time
 import random
 
 SCOPE = [
@@ -35,21 +35,40 @@ class WordleGame:
         self.highscores_data= self.highscores_sheet.get_all_values()
         self.player_name = None
         self.difficulty_choice = None
-        
+        self.number_of_guesses = 0
+        self.guessed_correctly = False
 
-    def start_game(self):
+    def run_game(self):
         """
         Starts the game. Calls the get player name function then displays game page.
+        Also calculates the time elapsed after starting the game
         """
         self.player_name = self.get_player_name()
         self.difficulty_choice = self.select_difficulty()
-        
+        difficulty_guess_mapping = {'easy': 10, 'normal': 6, 'hard': 4}
         print(f"Hello, {self.player_name}!")
         input("Press Enter to start the game")
         self.clear_terminal()
         print(title)
-        
+        #pick a random word from the answers list
+        answer=random.choice(self.all_answers)
+        #start timer
+        start_time = time.time()
+        while self.number_of_guesses < difficulty_guess_mapping[self.difficulty_choice] and not self.guessed_correctly:
+            guess = input("Input a 5-letter word and press enter: ")
+            print("You have guessed", guess)
+            #process guess
+            self.guessed_correctly = self.process_guess(answer, guess)
+        elapsed_time = time.time() - start_time
+        print(f"{elapsed_time:.1f} seconds.")
 
+    def process_guess(self,answer, guess):
+        if guess == answer:
+            print("Congratulations! You guessed the word correctly.")
+            self.guessed_correctly = True
+        else:
+            print("Sorry, that's not the correct word.")
+        
     def get_player_name(self):
         """
         Gets the player name and checks its length 
@@ -186,7 +205,7 @@ def main():
         choice=print_menu(firstload)
         firstload= False # Set the flag to False after the first display
         if choice == "1":
-            game.start_game()
+            game.run_game()
             
         elif choice == "2":
             game.clear_terminal()
