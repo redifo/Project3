@@ -121,10 +121,6 @@ Please refer to [TEST.md](TEST.md) file for all testing carried out.
 
 ### Code Used
 
-
-
-### Content
-
 14885 5 letter words were recovered as a .txt file from this directory:
 https://gist.github.com/dracos/dd0668f281e685bad51479e5acaadb93
 
@@ -132,9 +128,13 @@ https://gist.github.com/dracos/dd0668f281e685bad51479e5acaadb93
 https://dagshub.com/arjvik/wordle-wordlist
 
 The ASCII main menu title was created by using the website and the type selection given in the following url: https://patorjk.com/software/taag/#p=display&h=0&f=Standard&t=Wordle
+
 Overwriting previously printed lines learned from (Used for Making error messages to keep printing on the same line): https://itnext.io/overwrite-previously-printed-lines-4218a9563527 
 
 For writing the sorting algorithm for multiple attribute lists. Used for the top 10 highscores show function sorting.: https://stackoverflow.com/questions/4233476/sort-a-list-by-multiple-attributes
+
+The run game and process guess functions were written through the help of the following tutorials: https://www.youtube.com/watch?v=J6h7D2iQmBU&ab_channel=CompSciwithDr.Victor
+
 
 Readme.md and Testing.md write structure was written by using my past project as a reference (milestone project 1).
 

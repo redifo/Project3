@@ -50,24 +50,51 @@ class WordleGame:
         input("Press Enter to start the game")
         self.clear_terminal()
         print(title)
+
+        #had to iterate due to being a list nested in a list
+        all_words_list = [' '.join(sublist) for sublist in self.all_words]
         #pick a random word from the answers list
         answer=random.choice(self.all_answers)
+        answer_string= answer[0]
+        answer_display = ['_____']
         #start timer
         start_time = time.time()
+        print(answer_string)
         while self.number_of_guesses < difficulty_guess_mapping[self.difficulty_choice] and not self.guessed_correctly:
-            guess = input("Input a 5-letter word and press enter: ")
-            print("You have guessed", guess)
-            #process guess
-            self.guessed_correctly = self.process_guess(answer, guess)
+            previous_guesses=[]
+            print(answer_display)
+            
+            guess = input("\rInput a 5-letter word and press enter:\n")
+            
+            #if the guess is in the full list of allowed words 
+            if guess in all_words_list:
+                previous_guesses.append(guess)
+                print("You have guessed", guess)
+                #process guess
+                self.guessed_correctly = self.process_guess(answer_string, guess, answer_display)
+            else:
+                print("\rThat is not a valid word. Please try again with a valid word that is 5 letters long.", end="")
         elapsed_time = time.time() - start_time
         print(f"{elapsed_time:.1f} seconds.")
 
-    def process_guess(self,answer, guess):
+    def process_guess(self,answer, guess,answer_display):
         if guess == answer:
             print("Congratulations! You guessed the word correctly.")
             self.guessed_correctly = True
         else:
-            print("Sorry, that's not the correct word.")
+            clue = ""
+            for i, letter in enumerate(guess):
+                if letter == answer[i]:
+                    clue += letter
+                    answer_display[i] = letter
+                elif letter in answer:
+                    clue += "*"
+                else:
+                    clue += "-"
+            print("Clue:", clue)
+        print("\rSorry, that's not the correct word.", end="")
+        return self.guessed_correctly
+        
         
     def get_player_name(self):
         """
@@ -79,6 +106,7 @@ class WordleGame:
                 return name.title()
             else:
                 print("\rYour name must be at least 3 characters long and can only contain letters and numbers. Please try again.", end="")
+                print("\n")
                 
     def how_to_play(self):
         """
