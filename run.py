@@ -59,7 +59,7 @@ class WordleGame:
         
         #start timer
         start_time = time.time()
-        
+        self.clear_terminal()
         previous_guesses={}
 
         #Run the game as long as the number of guesses does not exceed the chosen difficulty limit and the word is not guessed correctly
@@ -68,21 +68,32 @@ class WordleGame:
             print(title)
             print(answer_string)
             current_answer_display = ['_' for i in range(5)] 
-            
             print("Your previous guesses and their clues:")
             for guess, clue in previous_guesses.items():
-                print(f"{guess}: {' '.join(clue)}")   
-            guess = input("Input a 5-letter word and press enter:\n")
-                      
-            #if the guess is in the full list of allowed words 
-            if guess in all_words_list:
-                #process guess
-                self.guessed_correctly, updated_display = self.process_guess(answer_string, guess, current_answer_display)
-                self.number_of_guesses += 1 #increment no of guesses
-                previous_guesses[guess] = updated_display
-            else:
-                print("\rThat is not a valid word. Please try again with a valid word that is 5 letters long.", end="")
-                guess = input("\rInput a 5-letter word and press enter:\n")
+                print(f"{guess}: {' '.join(clue)}")  
+            
+            while True:
+                guess = input("Input a 5-letter word and press enter:\n")
+                try:
+                    #if the guess is in the full list of allowed words 
+                    if guess in all_words_list: 
+                        self.guessed_correctly, updated_display = self.process_guess(answer_string, guess, current_answer_display)
+                        #equating the number of items in the dictionary to the ensures that 
+                        #the number of gueses does not increase if the user inputs the same word over and over again.
+                        self.number_of_guesses = len(previous_guesses) 
+                        previous_guesses[guess] = updated_display
+           
+                        break  # Break the loop if guess is valid
+                    else:
+                        raise ValueError("Invalid word")
+                except ValueError as e:
+                    print(f"{e}: Please try again with a valid word that is 5 letters long.")
+            
+            
+            
+            
+
+                
         
         elapsed_time = time.time() - start_time
         if self.guessed_correctly:
@@ -91,6 +102,8 @@ class WordleGame:
             self.end_game()
 
         else:
+            print(title)
+            print("_"*80)
             print(f"You could not guess the word in the given amount of guesses, the correct answer was {answer_string}")
             self.end_game()
 
