@@ -16,7 +16,7 @@ description
   * [Initial Flow Chart](#initial-flow-chart)
   * [Features](#features)
     * [Main Menu](#main-menu)
-  * [Accessibility](#accessibility)
+  * [Google Sheets](#google-sheets)
 
 * [Technologies Used](#technologies-used)
   * [Languages Used](#languages-used)
@@ -68,18 +68,31 @@ My main aims with this site are:
 
 ## Development
 
-### Initial Flow Chart
+I started by taking notes and creating a flow chart, which served as my roadmap for coding. This method allowed me to concentrate on coding and perfecting each section individually before moving to the next. My approach was straightforward: follow the notes and the flowchart meticulously, ensuring a clear and focused development process. After ensuring that each section of the code was functioning properly, I proceeded to develop the subsequent section. This sequential approach ensured a smooth progression in the project's development.
 
-Wireframes were created for mobile using balsamiq. For other devices wireframes were not seen as a necessity.
+### Flow Chart
+
+I have roughly wrote down the flow chart initally by hand and right after starting writing the code made a more detailed version which is shown below (made usig lucid chart).
+
+![Flow Chart](assets\flow-chart.png)
 
 ### Features
 
 
-#### Future Implementations
+#### Main Menu
 
 
-### Accessibility
+### Google Sheets
 
+For my word puzzle game, I decided to use Google Sheets right from the start. This setup includes three sheets:
+
+Answers Sheet: This has a big list of 14,000 words. These words are used as possible answers in the game, making it more interesting and varied.
+
+Game Words Sheet: It contains 2,300 words. These are the words that players try to guess in the game, offering a good mix of easy and tricky challenges.
+
+Scores Sheet: Here, players' scores are kept track of. It records how well they do in each game, like how many tries they take and how long they spend.
+
+Using Google Sheets from the beginning helped me keep everything organized and made the game work better.
 
 ## Technologies Used
 
