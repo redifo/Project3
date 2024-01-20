@@ -98,19 +98,23 @@ Using Google Sheets from the beginning helped me keep everything organized and m
 
 ### Languages Used
 
-Pyhton
+* [Python](https://www.python.org/) - The primary programming language for developing the game.
 
 ### Frameworks, Libraries & Programs Used
 
-* [Balsamiq](https://balsamiq.com/) - Used to create wireframes.
-
-* [Git](https://git-scm.com/) - For version control.
-
-* [Github](https://github.com/) - To save and store the files for the website.
-
 * [Am I Responsive](https://ui.dev/amiresponsive) To create a mockup of the website image on different platforms/devices.
-  
-* [convertio.co](https://convertio.co) To covert images into webp format.
+
+* [Google Sheets](https://www.google.com/sheets/about/) - Integrated for data management, storing word lists and player scores.
+
+* [gspread](https://gspread.readthedocs.io/en/latest/) - A Python library for Google Sheets interaction, enabling easy data manipulation and retrieval.
+
+* [GitHub](https://github.com/) - Used for version control and to save and store the files for the website.
+
+* [Heroku](https://www.heroku.com/) - Employed for deploying the application, allowing it to be accessible and functional on the web.
+
+* [Lucidchart](https://www.lucidchart.com/) - Used for creating and organizing flowcharts.
+
+* [Visual Studio Code](https://code.visualstudio.com/) - Chosen as the code editor for its efficient coding environment and extensive features.
 
 * [Webpage Spell-Check](https://chrome.google.com/webstore/detail/webpage-spell-check/mgdhaoimpabdhmacaclbbjddhngchjik/related) - a google chrome extension that allows you to spell check your webpage. Used to check the site and the readme for spelling errors.
 
@@ -153,7 +157,9 @@ Please refer to [TEST.md](TEST.md) file for all testing carried out.
 
 ### Bugs 
 
-![Bug 1](documentation/bug1.png)
+![Bug 1](assets/Bug-menuload.png)
+
+After deciding the code is largly finished with all parts working the initial testing revealed that the input field in the main menu does not work for the first time after completing the game once and returning back to main menu. this was caused due to the input field code being positioned within the print menu function not within the main function.
 
 ## Credits
 
@@ -180,6 +186,4 @@ Readme.md and Testing.md write structure was written by using my past project as
 
 I would like to acknowledge the following people:
 
-* My girlfriend Ege Tek for her support.
-
-* My code institute mentor Jubril.
+* My code institute mentor Jubril Akole for his support and working extra just to have a final meeting with me before the deadline.
