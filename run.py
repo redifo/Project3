@@ -110,6 +110,7 @@ class WordleGame:
         while True:
             end_game_input = input("Enter '1' to play again or '2' to return to the main menu: ")
             if end_game_input == '1':
+                self.guessed_correctly=False
                 self.run_game()
             elif end_game_input == '2':
                 print_menu(firstload=True)
