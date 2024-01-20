@@ -82,11 +82,13 @@ I have roughly wrote down the flow chart initally by hand and right after starti
 
 In this game, players try to guess a five-letter word. They have a few chances based on the difficulty level they choose. The game gives hints each time they guess. It's fun and also gets you thinking.
 
+![Main menu page](assets/main-menu.png)
+
 #### Three Google Sheets
 
 We use Google Sheets for different parts of the game:
 
-One sheet has 14,000 words that can be the answer.
+One sheet has 14,000 words which is used to check the input against valid words.
 Another sheet has 2,300 words that players try to guess.
 The last sheet keeps track of scores, showing how well players do.
 Different Difficulty Levels
@@ -95,6 +97,8 @@ Players can choose from three difficulty levels: easy, normal, or hard. This mak
 #### Highscores Tracking
 
 The game records players' high scores. It shows the top scorers, making it exciting to see where you stand among other players.
+
+![High Scores page](assets/highscore.png)
 
 #### Clear Gameplay
 
@@ -109,6 +113,8 @@ These features make our game engaging and fun. It's easy to play, and there's al
 ### Google Sheets
 
 For my word puzzle game, I decided to use Google Sheets right from the start. This setup includes three sheets:
+
+![Google Sheets High Score](assets/sheets.png)
 
 Answers Sheet: This has a big list of 14,000 words. These words are used as possible answers in the game, making it more interesting and varied.
 
