@@ -55,7 +55,8 @@ class WordleGame:
         #pick a random word from the answers list
         answer=random.choice(self.all_answers)
         answer_string= answer[0]
-        answer_display = ['_' for i in range(5)]
+        
+        
         #start timer
         start_time = time.time()
         
@@ -66,47 +67,48 @@ class WordleGame:
             self.clear_terminal()
             print(title)
             print(answer_string)
-            print(f"Clue for last guess: {' '.join(answer_display)}") 
+            current_answer_display = ['_' for i in range(5)] 
+            
             print("Your previous guesses and their clues:")
             for guess, clue in previous_guesses.items():
-                print(f"{guess}: {clue}")   
-            guess = input("\rInput a 5-letter word and press enter:\n")
+                print(f"{guess}: {' '.join(clue)}")   
+            guess = input("Input a 5-letter word and press enter:\n")
+                      
             #if the guess is in the full list of allowed words 
             if guess in all_words_list:
-                clue=(' '.join(answer_display))
-                previous_guesses[guess] = answer_display
                 #process guess
-                self.guessed_correctly = self.process_guess(answer_string, guess, answer_display)
+                self.guessed_correctly, updated_display = self.process_guess(answer_string, guess, current_answer_display)
                 self.number_of_guesses += 1 #increment no of guesses
+                previous_guesses[guess] = updated_display
             else:
                 print("\rThat is not a valid word. Please try again with a valid word that is 5 letters long.", end="")
+                guess = input("\rInput a 5-letter word and press enter:\n")
         
         elapsed_time = time.time() - start_time
         if self.guessed_correctly:
-            self.add_highscore(self.player_name,self.difficulty_choice,self.number_of_guesses,elapsed_time)
-            print(f"Your final time is {elapsed_time:.0f} seconds. It took you {self.number_of_guesses} guesses to find the right word")
-            
+            self.add_highscore(self.player_name,self.difficulty_choice,self.number_of_guesses,int(elapsed_time))
+            print(f"Your final time is {elapsed_time:.0f} seconds. It took you {self.number_of_guesses} guesses to find the right word!")
+            self.end_game()
 
         else:
             print(f"You could not guess the word in the given amount of guesses, the correct answer was {answer_string}")
-            
+            self.end_game()
+
     def end_game(self):
         """
         Ends the game and gives options to play again or return to the main menu.
         """
         while True:
-            try:
-                end_game_input = input("Enter '1' to play again or '2' to return to the main menu: ")
-                if end_game_input == '1':
-                    self.run_game()
-                elif end_game_input == '2':
-                    print_menu(firstload=True)
-                    break  # Break out of the loop when a valid option is entered
-                else:
-                    print("Please enter a valid option (1 or 2).")
-            except ValueError:
-                print("Invalid input. Please enter a valid option.")
-                
+            end_game_input = input("Enter '1' to play again or '2' to return to the main menu: ")
+            if end_game_input == '1':
+                self.run_game()
+            elif end_game_input == '2':
+                print_menu(firstload=True)
+                break  # Break out of the loop when a valid option is entered
+            else:
+                print("Please enter a valid option (1 or 2).")
+            
+
     def process_guess(self, answer, guess, answer_display):
         """
         Check if the guessed word is correct or not and 
@@ -125,7 +127,7 @@ class WordleGame:
                     answer_display[i] = letter+"*"
                 else:
                     answer_display[i] = "_"
-        return self.guessed_correctly
+        return self.guessed_correctly, answer_display
         
         
     def get_player_name(self):
@@ -202,6 +204,7 @@ class WordleGame:
         Show highscores data of the best 5 players
         The data is take from google sheets
         """
+        self.highscores_data= self.highscores_sheet.get_all_values()
         print(title)
         print("-" * 80)
         print("Top 10 Highscores:")
@@ -248,7 +251,7 @@ def print_menu(firstload):
         print("3. How to play")
         print("-" * 80)
     
-    menu_choice = input("Select an option : ")
+    menu_choice = input("Select an option 1 2 or 3: ")
     return menu_choice
 
 
