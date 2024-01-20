@@ -257,6 +257,8 @@ def print_menu(firstload):
         os.system('cls' if os.name == 'nt' else 'clear')
         print(title)
         print("-" * 80) 
+        print("Welcome to our Word Puzzle Game! Get ready to test your word-guessing skills and have some fun. Let's see if you can crack the code and climb up the highscore chart!")
+        print("-" * 80)
         print("1. Start Game")
         print("2. Show High-Scores")
         print("3. How to play")
