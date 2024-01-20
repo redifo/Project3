@@ -1,4 +1,4 @@
-# Pick your poison
+# Wordle Game
 
 ![shown on a variety of screen sizes](documentation/responsive.webp)
 
@@ -7,13 +7,15 @@ The deployed site: [Wordle](https://wordle-ci-569efaee926b.herokuapp.com/)
 description
 
 ## CONTENTS
-* [Introdduction](#introduction)
+* [Introduction](#introduction)
 * [Project](#project)
-  * [User Stories](#user-stories)
+  * [User Goals](#user-goals)
+  * [Site Goals](#site-goals)
 
 * [Development](#development)
-  * [Wireframes](#wireframes)
+  * [Initial Flow Chart](#initial-flow-chart)
   * [Features](#features)
+    * [Main Menu](#main-menu)
   * [Accessibility](#accessibility)
 
 * [Technologies Used](#technologies-used)
@@ -34,16 +36,39 @@ description
   * [Acknowledgments](#acknowledgments)
 
 - - -
+## Introduction
+
+Welcome to our word puzzle game! Here, players are invited to test their word skills by guessing a five-letter word within a limited number of tries. After each guess, you'll receive hints to help you get closer to the correct word. This game is perfect for anyone looking to sharpen their vocabulary and enjoy a fun, brain-teasing challenge. Plus, your guesses and scores get saved, so you can track your progress over time or compete with friends.
 
 ## Project
 
-### User Stories
+The purpose of this project is simple but impactful:
 
+-To offer an enjoyable and mentally stimulating game that improves vocabulary and problem-solving skills.
+-To provide a straightforward platform where users can easily play, review their past guesses, and see their scores.
+-To create a user-friendly experience, with data stored and organized efficiently, making it easy for players to revisit and improve their performance.
 
+### User Goals
 
-## Design
+Players of our game are looking for:
 
-### Wireframes
+-A fun and engaging way to challenge themselves with word puzzles.
+-Easy-to-understand gameplay with immediate feedback on their guesses.
+-A way to track their progress and compare scores with others.
+-A hassle-free gaming experience that they can jump into anytime.
+
+### Site Goals
+
+My main aims with this site are:
+
+-To deliver an easy-to-use and enjoyable game that keeps players coming back.
+-To provide clear and concise instructions, so players know exactly what to do.
+-To ensure smooth gameplay with quick access to game data and scores.
+-To maintain a flexible platform that can evolve and include more features in the future.
+
+## Development
+
+### Initial Flow Chart
 
 Wireframes were created for mobile using balsamiq. For other devices wireframes were not seen as a necessity.
 
