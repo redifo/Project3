@@ -40,22 +40,23 @@ class WordleGame:
 
     def run_game(self):
         """
-        Starts the game. Calls the get player name function then displays game page.
-        Also calculates the time elapsed after starting the game
+        Starts the game. Calls the get player name and difficulty functions
+        Then displays game page and hadles the game logic
+        Calculates the time elapsed after starting the game
+        Calls the the end game function when the game ens
         """
+
         self.player_name = self.get_player_name()
         self.difficulty_choice = self.select_difficulty()
         difficulty_guess_mapping = {'easy': 10, 'normal': 6, 'hard': 4}
         print(f"Hello, {self.player_name}!")
         input("Press Enter to start the game")
         
-
         #had to iterate due to being a list nested in a list
         all_words_list = [' '.join(sublist) for sublist in self.all_words]
         #pick a random word from the answers list
         answer=random.choice(self.all_answers)
         answer_string= answer[0]
-        
         
         #start timer
         start_time = time.time()
@@ -73,7 +74,7 @@ class WordleGame:
                 print(f"{guess}: {' '.join(clue)}")  
             
             while True:
-                guess = input("Input a 5-letter word and press enter:\n")
+                guess = input("Input a 5-letter word and press enter:")
                 try:
                     #if the guess is in the full list of allowed words 
                     if guess in all_words_list: 
@@ -87,13 +88,7 @@ class WordleGame:
                     else:
                         raise ValueError("Invalid word")
                 except ValueError as e:
-                    print(f"{e}: Please try again with a valid word that is 5 letters long.")
-            
-            
-            
-            
-
-                
+                    print(f"\r{e}:Please try again with a valid word that is 5 letters long.")     
         
         elapsed_time = time.time() - start_time
         if self.guessed_correctly:
