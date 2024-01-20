@@ -98,7 +98,6 @@ class WordleGame:
             self.end_game()
 
         else:
-            print(title)
             print("_"*80)
             print(f"You could not guess the word in the given amount of guesses, the correct answer was {answer_string}")
             self.end_game()
@@ -263,21 +262,20 @@ def print_menu(firstload):
         print("3. How to play")
         print("-" * 80)
     
-    menu_choice = input("Select an option 1 2 or 3: ")
-    return menu_choice
-
-
 def main():
     """
-    The main function to run the Wordle game.
+    The main function to run the Wordle gamemeu indefinitly.
     """
     #create an instance of the WordleGame class named game
     game = WordleGame(SHEET)
     #Set the flag of print_menu fuction to true for initally showing the whole menu
     firstload=True
     while True:
+        
         # Display the menu and get the user's choice
-        choice=print_menu(firstload)
+        print_menu(firstload)
+        choice=input("Select an option 1 2 or 3: ")
+        
         firstload= False # Set the flag to False after the first display
         if choice == "1":
             game.run_game()
