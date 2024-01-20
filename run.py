@@ -46,7 +46,8 @@ class WordleGame:
         Calls the the end game function when the game ens
         """
 
-        self.player_name = self.get_player_name()
+        if self.player_name == None:
+            self.player_name = self.get_player_name()
         self.difficulty_choice = self.select_difficulty()
         difficulty_guess_mapping = {'easy': 10, 'normal': 6, 'hard': 4}
         print(f"Hello, {self.player_name}!")
@@ -93,7 +94,7 @@ class WordleGame:
         elapsed_time = time.time() - start_time
         if self.guessed_correctly:
             self.add_highscore(self.player_name,self.difficulty_choice,self.number_of_guesses,int(elapsed_time))
-            print(f"Your final time is {elapsed_time:.0f} seconds. It took you {self.number_of_guesses} guesses to find the right word!")
+            print(f"Your final time is {elapsed_time:.0f} seconds. It took you {self.number_of_guesses+1} guesses to find the right word!")
             self.end_game()
 
         else:
