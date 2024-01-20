@@ -1,0 +1,12 @@
+| Feature                    | Expected Outcome                                                  | Testing Performed                                  | Result                                  | Pass/Fail |
+|----------------------------|-------------------------------------------------------------------|----------------------------------------------------|-----------------------------------------|-----------|
+| Game Initialization        | Game initializes with a welcome message and name prompt           | Started the game                                   | Welcome message and name prompt appear  | Pass      |
+| Player Name Validation     | Reject names under 3 characters and prompt for re-entry           | Entered various name lengths                       | Incorrect names rejected, correct prompt | Pass      |
+| Difficulty Selection       | Allows selection of difficulty and sets guess limit               | Selected each difficulty level                     | Correct guess limit set for each level   | Pass      |
+| Word Guessing              | Accepts valid 5-letter words and provides feedback                 | Entered various valid and invalid words            | Valid words accepted, feedback provided  | Pass      |
+| Guess Limit Functionality  | Game ends after reaching max guesses for difficulty               | Guessed until reaching the limit                   | Game ended after max guesses             | Pass      |
+| High Score Functionality   | Records and displays high scores correctly                        | Completed games and checked high score list        | High scores recorded and displayed       | Pass      |
+| Game Restart               | Option to play again or return to main menu after game ends       | Selected options after game completion             | Correct navigation after game            | Pass      |
+| Input Error Handling       | Display error for invalid inputs and allows correction            | Entered invalid inputs and corrected               | Error displayed, correction allowed      | Pass      |
+| Data Persistence           | Scores and words persist across sessions                          | Restarted game, checked scores and word list       | Data persisted correctly                 | Pass      |
+| User Interface Consistency | UI elements consistent and responsive throughout gameplay         | Interacted with various UI elements                | UI consistent and responsive             | Pass      |
