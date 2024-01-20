@@ -68,7 +68,7 @@ class WordleGame:
         while self.number_of_guesses < difficulty_guess_mapping[self.difficulty_choice] and not self.guessed_correctly:
             self.clear_terminal()
             print(title)
-            print(answer_string)
+            
             current_answer_display = ['_' for i in range(5)] 
             print("Your previous guesses and their clues:")
             for guess, clue in previous_guesses.items():
@@ -113,6 +113,7 @@ class WordleGame:
                 self.guessed_correctly=False
                 self.run_game()
             elif end_game_input == '2':
+                self.guessed_correctly=False
                 print_menu(firstload=True)
                 break  # Break out of the loop when a valid option is entered
             else:
