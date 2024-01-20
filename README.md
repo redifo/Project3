@@ -78,9 +78,33 @@ I have roughly wrote down the flow chart initally by hand and right after starti
 
 ### Features
 
+#### Guess the Word
 
-#### Main Menu
+In this game, players try to guess a five-letter word. They have a few chances based on the difficulty level they choose. The game gives hints each time they guess. It's fun and also gets you thinking.
 
+#### Three Google Sheets
+
+We use Google Sheets for different parts of the game:
+
+One sheet has 14,000 words that can be the answer.
+Another sheet has 2,300 words that players try to guess.
+The last sheet keeps track of scores, showing how well players do.
+Different Difficulty Levels
+Players can choose from three difficulty levels: easy, normal, or hard. This makes the game fun for everyone, whether they just want to relax or are looking for a real challenge.
+
+#### Highscores Tracking
+
+The game records players' high scores. It shows the top scorers, making it exciting to see where you stand among other players.
+
+#### Clear Gameplay
+
+Players get all the instructions they need to play. The game takes them through each step, from entering their name to choosing a difficulty level and starting to guess words.
+
+#### End Game Options
+
+When a game ends, players can either try again or go back to the main menu. This makes it easy to keep playing or take a break.
+
+These features make our game engaging and fun. It's easy to play, and there's always a new challenge waiting for you. Plus, seeing your name on the high score list is a great feeling!
 
 ### Google Sheets
 
