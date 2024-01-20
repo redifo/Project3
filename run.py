@@ -114,6 +114,7 @@ class WordleGame:
                 self.run_game()
             elif end_game_input == '2':
                 self.guessed_correctly=False
+                self.player_name=None
                 print_menu(firstload=True)
                 break  # Break out of the loop when a valid option is entered
             else:

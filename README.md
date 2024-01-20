@@ -7,11 +7,11 @@ The deployed site: [Wordle](https://wordle-ci-569efaee926b.herokuapp.com/)
 description
 
 ## CONTENTS
-
-* [User Experience](#user-experience-ux)
+* [Introdduction](#introduction)
+* [Project](#project)
   * [User Stories](#user-stories)
 
-* [Design](#design)
+* [Development](#development)
   * [Wireframes](#wireframes)
   * [Features](#features)
   * [Accessibility](#accessibility)
@@ -35,7 +35,7 @@ description
 
 - - -
 
-## User Experience (UX)
+## Project
 
 ### User Stories
 
