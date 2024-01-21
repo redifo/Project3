@@ -74,7 +74,7 @@ I started by taking notes and creating a flow chart, which served as my roadmap 
 
 I have roughly wrote down the flow chart initally by hand and right after starting writing the code made a more detailed version which is shown below (made usig lucid chart).
 
-![Flow Chart](assets\flow-chart.png)
+![Flow Chart](assets/flow-chart.png)
 
 ### Features
 

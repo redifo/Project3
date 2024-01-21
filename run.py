@@ -266,10 +266,10 @@ class WordleGame:
 
         def sort_scores(score):
             """
-            Sorting function
+            Sorting function for highscores
             """
             name, difficulty, guesses, time = score
-            return (guesses, difficulty_mapping[difficulty], time)
+            return (guesses, -difficulty_mapping[difficulty], time)
 
         # Sort the high_scores list
         sorted_highscores = sorted(highscores_data, key=sort_scores)
