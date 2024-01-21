@@ -15,7 +15,7 @@ description
 * [Development](#development)
   * [Initial Flow Chart](#initial-flow-chart)
   * [Features](#features)
-    * [Main Menu](#main-menu)
+    * [Wordle Game Menu](#main-menu)
   * [Google Sheets](#google-sheets)
 
 * [Technologies Used](#technologies-used)
@@ -78,15 +78,15 @@ I have roughly wrote down the flow chart initally by hand and right after starti
 
 ### Features
 
-#### Guess the Word
+#### Wordle Game Menu
 
 In this game, players try to guess a five-letter word. They have a few chances based on the difficulty level they choose. The game gives hints each time they guess. It's fun and also gets you thinking.
 
 ![Main menu page](assets/main-menu.png)
 
-#### Three Google Sheets
+#### Google Sheets
 
-We use Google Sheets for different parts of the game:
+I used Google Sheets for different parts of the game:
 
 One sheet has 14,000 words which is used to check the input against valid words.
 Another sheet has 2,300 words that players try to guess.
