@@ -4,7 +4,7 @@
 
 The deployed site: [Wordle](https://wordle-ci-569efaee926b.herokuapp.com/)
 
-Wordle Game is a captivating and intellectually stimulating word puzzle that challenges players to guess a five-letter word within a limited number of attempts. This interactive game combines the thrill of word discovery with the excitement of problem-solving. Players choose from three difficulty levels, tailoring the challenge to their skill level. 
+Wordle Game is a captivating and intellectually stimulating word puzzle that challenges players to guess a five-letter word within a limited number of attempts. 
 
 ## CONTENTS
 * [Introduction](#introduction)
