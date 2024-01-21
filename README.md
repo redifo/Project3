@@ -80,13 +80,25 @@ I have roughly wrote down the flow chart initally by hand and right after starti
 
 #### Wordle Game Menu
 
-In this game, players try to guess a five-letter word. They have a few chances based on the difficulty level they choose. The game gives hints each time they guess. It's fun and also gets you thinking.
+In this game, players try to guess a five-letter word. They have a few chances based on the difficulty level they choose. The game gives hints each time they guess. It's fun and also gets you thinking. The images below also illustrate the validations of the input of the user, displayig an error messages when the input is not valid.
 
 ![Main menu page](assets/main-menu.png)
 
+![Choose difficulty](assets/difficulty.png)
+
 #### Google Sheets
 
-I used Google Sheets for different parts of the game:
+For my word puzzle game, I decided to use Google Sheets right from the start. This setup includes three sheets:
+
+![Google Sheets High Score](assets/sheets.png)
+
+Answers Sheet: This has a big list of 14,000 words. These words are used as possible answers in the game, making it more interesting and varied.
+
+Game Words Sheet: It contains 2,300 words. These are the words that players try to guess in the game, offering a good mix of easy and tricky challenges.
+
+Scores Sheet: Here, players' scores are kept track of. It records how well they do in each game, like how many tries they take and how long they spend.
+
+Using Google Sheets from the beginning helped me keep everything organized and made the game work better.
 
 One sheet has 14,000 words which is used to check the input against valid words.
 Another sheet has 2,300 words that players try to guess.
@@ -110,25 +122,16 @@ When a game ends, players can either try again or go back to the main menu. This
 
 These features make our game engaging and fun. It's easy to play, and there's always a new challenge waiting for you. Plus, seeing your name on the high score list is a great feeling!
 
-### Google Sheets
-
-For my word puzzle game, I decided to use Google Sheets right from the start. This setup includes three sheets:
-
-![Google Sheets High Score](assets/sheets.png)
-
-Answers Sheet: This has a big list of 14,000 words. These words are used as possible answers in the game, making it more interesting and varied.
-
-Game Words Sheet: It contains 2,300 words. These are the words that players try to guess in the game, offering a good mix of easy and tricky challenges.
-
-Scores Sheet: Here, players' scores are kept track of. It records how well they do in each game, like how many tries they take and how long they spend.
-
-Using Google Sheets from the beginning helped me keep everything organized and made the game work better.
+![End Game](assets/endgame.png)
 
 ## Technologies Used
 
 ### Languages Used
 
 * [Python](https://www.python.org/) - The primary programming language for developing the game.
+
+Html and CSS were used to center the contents of the heroku app page and to add social media links to my social media accounts under the game window (terminal).
+This idea was inspired from (https://github.com/todiane/corri-construction-p3/tree/main?tab=readme-ov-file) a project made by a former student, after completing the project and checking past projects for reference.
 
 ### Frameworks, Libraries & Programs Used
 
