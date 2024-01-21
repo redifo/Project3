@@ -16,12 +16,12 @@ SCOPED_CREDS = CREDS.with_scopes(SCOPE)
 GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open('project3-ci')
 
-title = """             __        __                     _   _
-             \ \      / /   ___    _ __    __| | | |   ___
-              \ \ /\ / /   / _ \  | '__|  / _` | | |  / _ \.
-               \ V  V /   | (_) | | |    | (_| | | | |  __/
-                \_/\_/     \___/  |_|     \__,_| |_|  \___|
-        """
+title = """
+ _ _ _              _  _
+| | | | ___  ___  _| || | ___
+| | | || . ||  _|| . || || -_|
+|_____||___||_|  |___||_||___|
+"""
 
 
 class WordleGame:
