@@ -48,27 +48,29 @@ Me and 2 of my friends that I have send the link to the game tested the game man
 | Game Restart               | Option to play again or return to main menu after game ends       | Selected options after game completion             | Correct navigation after game            | Pass      |
 | Input Error Handling       | Display error for invalid inputs and allows correction            | Entered invalid inputs and corrected               | Error displayed, correction allowed      | Pass      |
 | Data Persistence           | Scores and words persist across sessions                          | Restarted game, checked scores and word list       | Data persisted correctly                 | Pass      |
-| User Interface Consistency | UI elements consistent and responsive throughout gameplay         | Interacted with various UI elements                | UI consistent and responsive             | Pass      |
+
 
 ### Automated Testing
 
 Automated testing was not the primary focus due to the nature of the project. However, the code was regularly checked against PEP 8 standards to ensure code quality and readability. No errors in the final project.
 
-* [pep8 Linter CI](https://pep8ci.herokuapp.com/#) - Used for checkig the code against pep8 format errors
+* [pep8 Linter CI](https://pep8ci.herokuapp.com/#) - Used for checking the code against pep8 format errors
 
 ## Browser Testing
 
 The game was tested in various browser environments to ensure consistent performance. The primary browsers used for testing included:
 
 Chrome
+
 Firefox
+
 Edge
 
 ## Google Sheets Testing
 
 With Google Sheets being an integral part of the game's functionality, several tests were conducted to ensure reliable data retrieval and storage. These tests included:
 
-Adding and retrieving words from the word list.
+Retrieving words from the word list.
 Recording and fetching high scores.
 
 ## Conclusion

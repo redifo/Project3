@@ -196,7 +196,7 @@ Please refer to [TEST.md](TEST.md) file for all testing carried out.
 
 ![Bug 1](assets/Bug-menuload.png)
 
-After deciding the code is largly finished with all parts working the initial testing revealed that the input field in the main menu does not work for the first time after completing the game once and returning back to main menu. this was caused due to the input field code being positioned within the print menu function not within the main function.
+After deciding the code is mainly finished with all parts working the initial testing revealed that the input field in the main menu does not work for the first time after completing the game once and returning back to main menu. this was caused due to the input field code being positioned within the print menu function not within the main function.
 
 ## Credits
 
@@ -223,6 +223,6 @@ Readme.md and Testing.md write structure was written by using my past project as
 
 I would like to thank the following people:
 
-* My girlfirend ege for her support and testing attempts.
+* My girlfriend Ege for her support and help during testing.
 
 * My code institute mentor Jubril Akole for his support and working extra just to have a final meeting with me before the deadline.
