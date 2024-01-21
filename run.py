@@ -183,7 +183,8 @@ class WordleGame:
         print(
             "5. The feedback consists of two elements: "
         )
-        print("correct letters and correct letters in the wrong position (*)")
+        print(
+            "  correct letters and correct letters in the wrong position (*)")
         print(
             "6. For example, if the answer is 'APPLE' and you guess is 'ADOPT'"
         )
@@ -266,7 +267,9 @@ class WordleGame:
 
         def sort_scores(score):
             """
-            Sorting function for highscores
+            Sorting function for highscores, first the player are sorted
+            accordig to the number of guesses
+            then according to difficulty and finally for time
             """
             name, difficulty, guesses, time = score
             return (guesses, -difficulty_mapping[difficulty], time)
