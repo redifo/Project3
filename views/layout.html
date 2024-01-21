@@ -12,6 +12,9 @@
     <style>
         body {
             font-family: Arial;
+            display: flex;
+            flex-direction: column;
+            align-content: center;
         }
 
         /**
@@ -164,6 +167,40 @@
             text-transform: uppercase;
             margin: 10px;
             border-radius: 8px;
+        }
+
+        /* Footer Styles */
+        footer.centered-footer {
+            text-align: center;
+            padding: 20px; 
+        }
+
+        /* Social Icons Styles */
+        ul.social-icons {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center; 
+        }
+
+        ul.social-icons li {
+            margin: 0 15px; 
+        }
+
+        a.social-icon {
+            text-decoration: none;
+            color: #E84610; 
+        }
+
+        a.social-icon:hover i {
+            color: goldenrod; /* Hover effect color */
+        }
+
+        /* Disclaimer Style */
+        p.disclaimer {
+            margin-top: 20px; 
+            color: #E84610; /* Text color */
         }
     </style>
 </head>

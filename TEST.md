@@ -11,6 +11,7 @@
 | Data Persistence           | Scores and words persist across sessions                          | Restarted game, checked scores and word list       | Data persisted correctly                 | Pass      |
 | User Interface Consistency | UI elements consistent and responsive throughout gameplay         | Interacted with various UI elements                | UI consistent and responsive             | Pass      |
 
+* [pep8 Linter CI](https://pep8ci.herokuapp.com/#) - Used for checkig the code against pep8 format errors
 
 Initial results from pep8 checker:
 21: W605 invalid escape sequence '\ '

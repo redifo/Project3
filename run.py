@@ -16,6 +16,7 @@ SCOPED_CREDS = CREDS.with_scopes(SCOPE)
 GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open('project3-ci')
 
+# ascii_art for title of the game
 title = """
  _ _ _              _  _
 | | | | ___  ___  _| || | ___
@@ -42,9 +43,9 @@ class WordleGame:
     def run_game(self):
         """
         Starts the game. Calls the get player name and difficulty functions
-        Then displays game page and hadles the game logic
+        Then displays game page and handles the game logic
         Calculates the time elapsed after starting the game
-        Calls the the end game function when the game ens
+        Calls the the end game function when the game ends
         """
 
         if self.player_name is None:
@@ -53,7 +54,7 @@ class WordleGame:
         difficulty_guess_mapping = {'easy': 10, 'normal': 6, 'hard': 4}
         print(f"Hello, {self.player_name}!")
         input("Press Enter to start the game")
-        # had to iterate due to being a list nested in a list
+        # had to iterate due self.all_words being a list nested in a list
         all_words_list = [' '.join(sublist) for sublist in self.all_words]
         # pick a random word from the answers list
         answer = random.choice(self.all_answers)
@@ -69,6 +70,7 @@ class WordleGame:
                 self.difficulty_choice] and not self.guessed:
             self.clear_terminal()
             print(title)
+            # used for showing the clues for previous guessess
             current_answer_display = ['_' for i in range(5)]
             print("Your previous guesses and their clues:")
             for guess, clue in previous_guesses.items():
@@ -168,7 +170,12 @@ class WordleGame:
         print(
             "1. You will be asked to enter your name upon starting the game."
         )
-        print("2. Once your name is entered, the game will begin")
+        print(
+            "2. Once your name is entered, desired difficulty will be asked"
+            )
+        print(
+            "  After choosing your difficulty level, the game will begin"
+            )
         print(
             "3. You'll be asked to type and try to guess a 5-letter word."
         )
@@ -180,12 +187,12 @@ class WordleGame:
         print(
             "6. For example, if the answer is 'APPLE' and you guess is 'ADOPT'"
         )
-        print("the feedback might look like this: A _ _ P*_ ")
+        print("  the feedback might look like this: A _ _ P*_ ")
         print(
-            "as you can see the 'A' is in correct position with no marking "
+            "  as you can see the 'A' is in correct position with no marking "
         )
         print(
-            "P* idicating the letter is in the answer at a different location"
+            "  P* idicating the letter is in the answer at different position"
         )
         print(
             "7. If you correctly guess the word, you win the game!"
@@ -222,6 +229,10 @@ class WordleGame:
                 return self.select_difficulty()
 
     def get_num_guesses(self):
+        """
+        Dependig on the difficulty of choise returns the number of guesses
+        allowed before ending the game
+        """
         if self.difficulty_choice == "easy":
             return 10
         elif self.difficulty_choice == "normal":
@@ -297,7 +308,7 @@ def print_menu(firstload):
 
 def main():
     """
-    The main function to run the Wordle gamemeu indefinitly.
+    The main function to run the Wordle game indefinitly.
     """
     # Create an instance of the WordleGame class named game
     game = WordleGame(SHEET)
@@ -307,22 +318,27 @@ def main():
 
         # Display the menu and get the user's choice
         print_menu(firstload)
-        choice = input("Select an option 1 2 or 3: ")
-        firstload = False  # Set the flag to False after the first display
+        choice = input("Type 1 (Start Game) 2 (Highscores) or 3 (Rules): ")
+        firstload = False
+        # Set the flag to False after the first display this ensures that
+        # the etire menu is not reprinnted after an invalid choice, etc
         if choice == "1":
             game.run_game()
 
         elif choice == "2":
+            # Clear termial for showing the highscores, reset the menu flag
             game.clear_terminal()
             game.show_highscores()
             firstload = True
 
         elif choice == "3":
+            # Clear termial for showing the rules, reset the menu flag
             game.clear_terminal()
             game.how_to_play()
             firstload = True
 
         else:
+            # print error mesage if the type value is not 1,2 or 3
             print("Invalid option. Please choose a valid option.")
             continue
 
