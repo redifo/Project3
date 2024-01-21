@@ -1,10 +1,10 @@
 # Wordle Game
 
-![shown on a variety of screen sizes](documentation/responsive.webp)
+![shown on a variety of screen sizes](assets/responsive.png)
 
 The deployed site: [Wordle](https://wordle-ci-569efaee926b.herokuapp.com/)
 
-description
+Wordle Game is a captivating and intellectually stimulating word puzzle that challenges players to guess a five-letter word within a limited number of attempts. This interactive game combines the thrill of word discovery with the excitement of problem-solving. Players choose from three difficulty levels, tailoring the challenge to their skill level. 
 
 ## CONTENTS
 * [Introduction](#introduction)
@@ -13,10 +13,13 @@ description
   * [Site Goals](#site-goals)
 
 * [Development](#development)
-  * [Initial Flow Chart](#initial-flow-chart)
+  * [Flow Chart](#flow-chart)
   * [Features](#features)
-    * [Wordle Game Menu](#main-menu)
-  * [Google Sheets](#google-sheets)
+    * [Wordle Game Menu](#wordle-game-menu)
+    * [Google Sheets](#google-sheets)
+    * [Highscores Tracking](#highscores-tracking)
+    * [Clear Gameplay](#clear-gameplay)
+    * [End Game Options](#end-game-options)
 
 * [Technologies Used](#technologies-used)
   * [Languages Used](#languages-used)
@@ -24,15 +27,14 @@ description
 
 * [Deployment & Local Development](#deployment--local-development)
   * [Deployment](#deployment)
-  * [Local Development](#local-development)
+  * [How to Fork](#how-to-fork)
+  * [How to Clone](#how-to-clone)
 
 * [Testing](#testing)
   * [Bugs](#Bugs)
   
 * [Credits](#credits)
   * [Code Used](#code-used)
-  * [Content](#content)
-  * [Media](#media)
   * [Acknowledgments](#acknowledgments)
 
 - - -
@@ -114,7 +116,9 @@ The game records players' high scores. It shows the top scorers, making it excit
 
 #### Clear Gameplay
 
-Players get all the instructions they need to play. The game takes them through each step, from entering their name to choosing a difficulty level and starting to guess words.
+Players get all the instructions they need to play from the how to play section. Also the game takes them through each step, from entering their name to choosing a difficulty level and starting to guess words.
+
+![How to Play](assets/how-to-play.png)
 
 #### End Game Options
 
@@ -217,6 +221,8 @@ Readme.md and Testing.md write structure was written by using my past project as
 
 ### Acknowledgments
 
-I would like to acknowledge the following people:
+I would like to thank the following people:
+
+* My girlfirend ege for her support and testing attempts.
 
 * My code institute mentor Jubril Akole for his support and working extra just to have a final meeting with me before the deadline.
