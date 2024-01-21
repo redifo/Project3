@@ -318,7 +318,7 @@ def main():
 
         # Display the menu and get the user's choice
         print_menu(firstload)
-        choice = input("Type 1 (Start Game) 2 (Highscores) or 3 (Rules): ")
+        choice = input("Type: 1 (Start Game) 2 (Highscores) or 3 (Rules): ")
         firstload = False
         # Set the flag to False after the first display this ensures that
         # the etire menu is not reprinnted after an invalid choice, etc
